@@ -5,7 +5,8 @@
 #ifndef string_h
 #define string_h
 
-#include <string.h>
+#include <cstring>
+#include <cassert>
 
 class String
 {
@@ -50,9 +51,9 @@ public:
         return *this;
     }
     
-    String& operator=(const String& rhs)
+    String& operator=(String rhs)
     {
-        *this = String(rhs);
+        swap(rhs);
         return *this;
     }
     

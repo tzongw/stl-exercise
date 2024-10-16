@@ -36,7 +36,7 @@ public:
     size_t push(T&& value) {
         std::unique_lock<std::mutex> lock(mtx_);
         queue_.push(std::forward<T>(value));
-        cond_.notify_all();
+        cond_.notify_one();
         return queue_.size();
     }
 private:
